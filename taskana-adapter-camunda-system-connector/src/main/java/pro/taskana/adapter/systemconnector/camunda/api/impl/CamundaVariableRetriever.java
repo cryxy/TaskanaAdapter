@@ -18,7 +18,8 @@ public class CamundaVariableRetriever {
     public String retrieveVariables(String taskId, String camundaSystemURL) {
         LOGGER.debug("entry to retrieveTaskVariables.  taskId = {}, CamundSystemURL = {} ",taskId, camundaSystemURL );
         String requestUrl = camundaSystemURL + CamundaSystemConnectorImpl.URL_GET_CAMUNDA_TASKS 
-                            + taskId + CamundaSystemConnectorImpl.URL_GET_CAMUNDA_VARIABLES;
+                            + taskId + CamundaSystemConnectorImpl.URL_GET_CAMUNDA_VARIABLES 
+                            + "deserializeValues=false";
         
         LOGGER.debug("about to retrieveTaskVariables.  requestURL = {} ", requestUrl  );
         ResponseEntity<String> result = restTemplate.getForEntity(requestUrl, String.class);
